@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #loginform{
+        height: 500px;
+          background-color: rgb(252, 122, 202);
+          text-align: center;
+          padding-top: 250px;
+      }
+      input{
+        padding: 5px;
+        margin: 8px;
+        border-radius: 5px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" id="loginform">
+      <input type="text" name="username" id="username" placeholder="username"> <br>
+      <input type="email" name="email" id="eamil" placeholder="email" /> <br>
+      <input type="password" name="password" id="password" placeholder="password" /> <br>
+      <button type="submit">submit</button>
+    </form>
+    <p id="message">Hello!!</p>
+    <script>
+
+      document.getElementById("loginform").addEventListener("submit", (e) => {
+        e.preventDefault();
+        let user =document.getElementsByName("username")[0].value;
+        
+        let email = document.getElementsByName("email")[0].value;
+      
+        let password = document.getElementsByName("password")[0].value;
+        
+        localStorage.setItem("username","Kaligotaswapnasri");
+        let username =localStorage.getItem("username");
+        
+        localStorage.setItem("email", "Kaligotaswapnasri05@gmail.com");
+        let emails = localStorage.getItem("email");
+       
+        localStorage.setItem("passwords", "Nimmy");
+        let passwords = localStorage.getItem("passwords");
+      
+        let messages = document.getElementsByTagName("t")[0];
+    
+        if (email === emails && password === passwords && user===username) {
+          
+          user="";
+          email = "";
+          password= "";
+          messages = "Login Sucessful.....!!";
+           window.open("http://www.flipkart.in","_blank")
+
+        } else if (email !== emails && password === passwords && user===username) {
+          user="";
+          email = "";
+          password = "";
+          messages.textContent = "Invalid Email....!!";
+     
+        } else if (email === emails && password !== passwords && user===username) {
+          user="";
+          email = "";
+          password = "";
+          messages.textContent = "Invalid password....!!";
+        
+        } else {
+          user="";
+          email.value = "";
+          password.value = "";
+          messages.textContent = "Invalid username....!!";
+          
+        }
+       
+      });
+    </script>
+  </body>
+</html>
